@@ -19,7 +19,7 @@ public class Library {
 
     public void addBook(Book book) {
         if (books.add(book)) {
-            System.out.println("Kitap eklendi: " + book.getName());
+            System.out.println("Kitap eklendi: " + book.getName() + ", " + book.getAuthor() + ", " + book.getType() + ", " + book.getPrice());
         } else {
             System.out.println("Bu kitap zaten var! : " + book.getName());
         }
@@ -43,9 +43,9 @@ public class Library {
                 .collect(Collectors.toSet());
 
         if (typeBooks.isEmpty()) {
-            System.out.println("No books found in the category: " + type);
+            System.out.println("Bu katagoriye ait kitap bulunamadı: " + type);
         } else {
-            System.out.println("Books in the category " + type + ":");
+            System.out.println("Kategoriye ait kitaplar " + type + ":");
             typeBooks.forEach(book -> System.out.println("- " + book.getName() + " by " + book.getAuthor()));
         }
     }
@@ -55,11 +55,12 @@ public class Library {
     public boolean updateBook(String bookName, String newBookName, String newAuthor, double newPrice, long newEdition) {
         for (Book book : books) {
             if (book.getName().equalsIgnoreCase(bookName)) {
+                System.out.println("Güncellenek kitap :" + book.getName());
                 book.setName(newBookName);
                 book.setAuthor(newAuthor);
                 book.setPrice(newPrice);
                 book.setEdition(newEdition);
-                System.out.println("Kitap güncelleme tamamlandı : " + newBookName);
+                System.out.println("Yerini alan kitap : " + newBookName);
                 return true;
             }
         }

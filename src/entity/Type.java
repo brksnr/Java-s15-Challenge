@@ -2,6 +2,6 @@ package entity;
 
 public enum Type {
     JOURNALS,
-    STUDYBOOKS,
+    STUDYBOOK,
     MAGAZINES,
 }
