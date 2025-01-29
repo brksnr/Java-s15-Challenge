@@ -3,6 +3,7 @@ package entity;
 import person.Reader;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Book {
 
@@ -100,14 +101,17 @@ public class Book {
         this.dateOfPurchase = dateOfPurchase;
     }
 
+
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(name, book.name);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 
     @Override
@@ -116,9 +120,11 @@ public class Book {
                 "id=" + id +
                 ", author='" + author + '\'' +
                 ", name='" + name + '\'' +
+                ", type=" + type +
                 ", price=" + price +
                 ", status=" + status +
                 ", edition=" + edition +
+                ", borrowedBy=" + borrowedBy +
                 ", dateOfPurchase=" + dateOfPurchase +
                 '}';
     }

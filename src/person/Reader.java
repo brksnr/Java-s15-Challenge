@@ -38,4 +38,12 @@ public class Reader extends Person {
     public Set<Book> getBorrowedBooks() {
         return borrowedBooks;
     }
+
+    @Override
+    public String toString() {
+        return "Reader{" +
+                "borrowedBooks=" + borrowedBooks +
+                ", limit=" + limit +
+                '}';
+    }
 }
